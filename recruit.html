@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>RECRUIT</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts: Başlık ve Logo için Open Sans, Alt başlık için Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Open+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+       <a href="index.html" class="logo">
+            <img src="logo.png" alt="Chiseteiru Logo" class="logo-img">
+            <!-- Yazıyı span içine aldık ki ona özel küçük tasarım verebilelim -->
+            <span class="back-text">ホーム</span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="works.html">作品</a></li>
+                <li><a href="recruit.html">採用情報</a></li>
+                <li><a href="special.html">スペシャル</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="contact.html">お問い合わせ</a></li>
+            </ul>
+        </nav>
+        <!-- DİL SEÇİCİ -->
+        <div class="lang-switcher">
+            <a href="tr/index.html">TR</a>
+            <span class="lang-separator">|</span>
+            <a href="en/index.html">EN</a>
+            <span class="lang-separator">|</span>
+            <a href="index.html" class="active-lang">JP</a>
+        </div>
+    </header>
+    
+    <div class="page-content recruit-page">
+        <h1 class="reveal-text">採用情報</h1>
+        
+        <div class="recruit-message">
+            <p class="reveal-text delay-1 closed-msg">
+                現在、スタジオ専属スタッフ（正社員）の定期採用は見合わせております。
+            </p>
+            <p class="reveal-text delay-2 sub-msg">
+                しかし、将来のプロジェクトに向けたポートフォリオのご登録や、フリーランスとしての協業にご興味がある方は、ぜひ下記のフォームより情報を残してください。
+            </p>
+            
+        </div>
+
+        <div class="reveal-text delay-3">
+            <!-- href kısmındaki tırnak içine Google Form linkini yapıştıracaksın -->
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScEEGxmipdiUOW0CFQgXS9UgMDAOg8f5C0AWo52t4obZiR26Q/viewform?usp=publish-editor" target="_blank" class="recruit-btn">ポートフォリオ登録・お問い合わせ</a>
+        </div>
+    </div>
+</body>
+</html>

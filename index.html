@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Chiseteiru Animation</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Google Fonts: Başlık ve Logo için Open Sans, Alt başlık için Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Open+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Yönlendirme (Dil Algılama) Scripti -->
+    <script>
+        if (!sessionStorage.getItem('dilYonlendirmesiYapildi')) {
+            var userLang = navigator.language || navigator.userLanguage; 
+            sessionStorage.setItem('dilYonlendirmesiYapildi', 'true');
+
+            if (userLang.toLowerCase().includes('tr')) {
+                window.location.href = 'tr/index.html';
+            }
+            else if (userLang.toLowerCase().includes('en')) {
+                window.location.href = 'en/index.html';
+            }
+        }
+    </script>
+    
+    <style>
+        /* Ana Sayfaya Özel Arka Plan Slayt CSS'i */
+        .slideshow { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: -1; background-color: #000; }
+        .slideshow img { position: absolute; width: 100%; height: 100%; object-fit: cover; opacity: 0; animation: fade 15s infinite; }
+        .slideshow img:nth-child(1) { animation-delay: 0s; }
+        .slideshow img:nth-child(2) { animation-delay: 5s; }
+        .slideshow img:nth-child(3) { animation-delay: 10s; }
+        @keyframes fade { 0% {opacity: 0;} 10% {opacity: 0.6;} 33% {opacity: 0.6;} 43% {opacity: 0;} 100% {opacity: 0;} }
+        
+        /* Merkez Yazı Tasarımı (Ana Başlık + Alt Başlık) */
+        .hero-container { 
+            height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            text-align: center;
+            text-shadow: 2px 2px 15px rgba(0,0,0,0.9); 
+        }
+        .hero-title { 
+            font-family: 'Open Sans', sans-serif; /* Open Sans'a geçirildi */
+            font-size: 90px; 
+            font-weight: 700; 
+            color: white; 
+            letter-spacing: 5px; 
+            margin-bottom: 10px; 
+        }
+        .hero-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 22px;
+            font-weight: 300;
+            color: #dddddd; 
+            letter-spacing: 6px;
+        }
+
+        .logo { font-family: 'Open Sans', sans-serif; } /* Logo da Open Sans oldu */
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">
+            <img src="logo.png" alt="Chiseteiru Logo" class="logo-img">
+            <span class="logo-suffix"> CHISETEIRU ANIMATION</span>
+        </a>
+        
+        <!-- Ana Menü (Tam Ortada Duracak) -->
+        <nav>
+            <ul>
+                <li><a href="works.html">作品</a></li>
+                <li><a href="recruit.html">採用情報</a></li>
+                <li><a href="special.html">スペシャル</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="contact.html">お問い合わせ</a></li>
+            </ul>
+        </nav>
+        
+        <!-- DİL SEÇİCİ (En Sağ Köşeye Yaslanacak) -->
+        <div class="lang-switcher">
+            <a href="tr/index.html">TR</a>
+            <span class="lang-separator">|</span>
+            <a href="en/index.html">EN</a>
+            <span class="lang-separator">|</span>
+            <a href="index.html" class="active-lang">JP</a>
+        </div>
+    </header>
+
+    <div class="slideshow">
+        <img src="gorsel1.jpg" alt="Slayt 1">
+        <img src="gorsel2.jpg" alt="Slayt 2">
+        <img src="gorsel3.jpg" alt="Slayt 3">
+    </div>
+
+    <div class="hero-container">
+        <div class="hero-title">Chiseteiru</div>
+        <!-- "Türkiye'nin anime stüdyosu" yazısının stüdyo kültürüne uygun Japonca çevirisi -->
+        <div class="hero-subtitle">境界のない、物語</div>
+    </div>
+</body>
+</html>
