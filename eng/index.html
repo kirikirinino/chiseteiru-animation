@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="tr">
+<<head>
+    <meta charset="UTF-8">
+    <title>Chiseteiru Animation</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Google Fonts: Başlık ve Logo için Open Sans, Alt başlık için Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Open+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+   
+    <style>
+        /* Ana Sayfaya Özel Arka Plan Slayt CSS'i */
+        .slideshow { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: -1; background-color: #000; }
+        .slideshow img { position: absolute; width: 100%; height: 100%; object-fit: cover; opacity: 0; animation: fade 15s infinite; }
+        .slideshow img:nth-child(1) { animation-delay: 0s; }
+        .slideshow img:nth-child(2) { animation-delay: 5s; }
+        .slideshow img:nth-child(3) { animation-delay: 10s; }
+        @keyframes fade { 0% {opacity: 0;} 10% {opacity: 0.6;} 33% {opacity: 0.6;} 43% {opacity: 0;} 100% {opacity: 0;} }
+        
+        /* Merkez Yazı Tasarımı (Ana Başlık + Alt Başlık) */
+        .hero-container { 
+            height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            text-align: center;
+            text-shadow: 2px 2px 15px rgba(0,0,0,0.9); 
+        }
+        .hero-title { 
+            font-family: 'Open Sans', sans-serif; /* Open Sans'a geçirildi */
+            font-size: 90px; 
+            font-weight: 700; 
+            color: white; 
+            letter-spacing: 5px; 
+            margin-bottom: 10px; 
+        }
+        .hero-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 22px;
+            font-weight: 300;
+            color: #dddddd; 
+            letter-spacing: 6px;
+        }
+
+        .logo { font-family: 'Open Sans', sans-serif; } /* Logo da Open Sans oldu */
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">
+            <img src="logo.png" alt="Chiseteiru Logo" class="logo-img">
+            <span class="logo-suffix">CHİSETEİRU ANİMASYON</span>
+        </a>
+        
+        <!-- Ana Menü (Tam Ortada Duracak) -->
+        <nav>
+            <ul>
+                <li><a href="projeler.html">Projelerimiz</a></li>
+                <li><a href="isealim.html">Kariyer</a></li>
+                <li><a href="special.html">Özel</a></li>
+                <li><a href="hakkimizda.html">Hakkımızda</a></li>
+                <li><a href="iletisim.html">İletişim</a></li>
+            </ul>
+        </nav>
+        
+        <!-- DİL SEÇİCİ (TR KLASÖRÜNDE OLDUĞUN İÇİN TR AKTİF) -->
+            <div class="lang-switcher">
+                <!-- Bulunduğun klasör zaten TR, o yüzden sadece index.html -->
+                <a href="index.html" class="active-lang">TR</a>
+                <span class="lang-separator">|</span>
+                <!-- İngilizce için bir üst klasöre çıkıp 'en' klasörüne giriyoruz -->
+                <a href="../en/index.html">EN</a>
+                <span class="lang-separator">|</span>
+                <!-- Japonca zaten ana dizin (dışarıda) olduğu için sadece bir üst klasöre çıkıyoruz -->
+                <a href="../index.html">JP</a>
+            </div>
+    </header>
+
+    <div class="slideshow">
+        <!-- Klasörüne gorsel1.jpg, gorsel2.jpg ve gorsel3.jpg adında 3 resim koymalısın -->
+        <img src="gorsel1.jpg" alt="Slayt 1">
+        <img src="gorsel2.jpg" alt="Slayt 2">
+        <img src="gorsel3.jpg" alt="Slayt 3">
+    </div>
+
+    <!-- Eski hero-text yerine alt alta iki metin barındıran yeni yapı -->
+    <div class="hero-container">
+        <div class="hero-title">Chiseteiru</div>
+        <div class="hero-subtitle">Türkiye'nin Anime Stüdyosu</div>
+    </div>
+</body>
+</html>
