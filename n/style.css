@@ -1,0 +1,520 @@
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+/* Tüm Sayfalar İçin Karanlık Arka Plan */
+body { 
+    font-family: 'Helvetica Neue', Arial, sans-serif; 
+    background-color: #050505; /* Ufotable tarzı derin siyah */
+    color: #ffffff; 
+}
+
+/* Ortak Üst Menü - Şeffaf ve Bulanık (Blur) Efektli */
+header { 
+    background: rgba(0, 0, 0, 0.8); /* Yarı şeffaf siyah */
+    backdrop-filter: blur(5px); /* Arkasını flulaştıran o şık efekt */
+    -webkit-backdrop-filter: blur(5px);
+    padding: 20px 50px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    position: fixed; 
+    top: 0; 
+    width: 100%; 
+    z-index: 1000;
+}
+.logo { 
+    display: flex; 
+    align-items: center; /* Logoyu ve yazıyı dikeyde tam ortalar */
+    gap: 15px; /* Logo ile yazı arasındaki boşluk */
+    font-size: 24px; 
+    font-weight: bold; 
+    letter-spacing: 3px; 
+    color: #ffffff; 
+    text-decoration: none;
+}
+
+/* Logomuzun boyut ayarı */
+.logo-img {
+    height: 40px; /* Çok büyük gelirse bu sayıyı küçültebilirsin */
+    width: auto;
+}
+nav ul { 
+    list-style: none; 
+    display: flex; 
+    gap: 30px; 
+}
+nav ul li a { 
+    text-decoration: none; 
+    color: #ffffff; 
+    font-size: 14px; 
+    text-transform: uppercase; 
+    letter-spacing: 1.5px;
+    transition: color 0.3s ease;
+}
+nav ul li a:hover { 
+    color: #b3b3b3; 
+}
+
+/* Alt Sayfalar İçin Ortak İçerik Alanı */
+.page-content { 
+    padding: 150px 50px 50px; 
+    max-width: 1000px; 
+    margin: 0 auto; 
+    min-height: 100vh; 
+    text-align: center;
+}
+h1 { 
+    font-size: 36px; 
+    margin-bottom: 40px; 
+    letter-spacing: 2px;
+}
+h2 {
+    font-size: 24px;
+    font-weight: normal;
+    letter-spacing: 2px;
+}
+
+/* Projeler (Works) Izgarası - Karanlık Kartlar */
+.works-grid { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px; 
+}
+.work-card { 
+    background-color: #111; 
+    border: 1px solid #222; 
+    padding: 80px 20px; 
+    font-size: 30px; 
+    font-weight: bold; 
+    border-radius: 4px;
+    transition: transform 0.3s ease;
+}
+.work-card:hover { 
+    transform: translateY(-5px); 
+    border-color: #555; 
+}
+
+/* --- HAKKIMIZDA SAYFASI EFEKTLERİ --- */
+.about-page {
+    max-width: 800px;
+    text-align: left; /* Metni sola dayamak ciddiyeti artırır */
+    margin: 0 auto;
+}
+.about-page p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #cccccc;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+}
+.team-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 50px;
+    border-top: 1px solid #333;
+    padding-top: 40px;
+}
+.team-member h4 {
+    font-size: 20px;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+.team-member span {
+    font-size: 14px;
+    color: #888888;
+}
+
+/* Havalı Giriş Animasyonu (Sinematik Fade-Up) */
+.reveal-text {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: revealUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.6s; }
+.delay-3 { animation-delay: 1.0s; }
+.delay-4 { animation-delay: 1.4s; }
+
+@keyframes revealUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- ÇOK YAKINDA (COMING SOON) EFEKTİ --- */
+.coming-soon-text {
+    font-size: 40px;
+    letter-spacing: 15px;
+    color: #ffffff;
+    opacity: 0;
+    /* Önce aşağıdan süzülerek gelsin, sonra nefes alma efektine geçsin */
+    animation: revealUp 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards, 
+               breathingGlow 4s ease-in-out infinite 1.5s;
+}
+
+@keyframes breathingGlow {
+    0% { text-shadow: 0 0 10px rgba(255,255,255,0.1); opacity: 0.7; }
+    50% { text-shadow: 0 0 30px rgba(255,255,255,0.8); opacity: 1; transform: scale(1.02); }
+    100% { text-shadow: 0 0 10px rgba(255,255,255,0.1); opacity: 0.7; }
+}
+
+/* --- TELEFONLAR İÇİN MOBİL UYUM (RESPONSIVE) --- */
+@media (max-width: 768px) {
+    /* Menüyü alt alta diz ve ortala */
+    header {
+        flex-direction: column;
+        padding: 15px;
+        gap: 15px;
+    }
+    nav ul {
+        flex-wrap: wrap; /* Sığmayan menü elemanlarını alta atar */
+        justify-content: center;
+        gap: 15px;
+    }
+    nav ul li a {
+        font-size: 12px; /* Mobilde yazılar biraz küçülsün */
+    }
+    
+    /* Ana sayfadaki dev yazıları küçült (Yeni yapıya göre) */
+    .hero-title {
+        font-size: 45px;
+        letter-spacing: 2px;
+    }
+    .hero-subtitle {
+        font-size: 14px;
+        letter-spacing: 3px;
+    }
+    
+    /* Projeler ızgarasını tek sütun yap (Mobilde alt alta görünsün) */
+    .works-grid {
+        grid-template-columns: 1fr; 
+    }
+    
+    /* Ekip üyelerini mobilde alt alta diz */
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    /* İçerik alanının boşluklarını daralt */
+    .page-content {
+        padding: 130px 20px 30px;
+    }
+    
+    .coming-soon-text {
+        font-size: 24px;
+        letter-spacing: 8px;
+    }
+
+    /* İletişim sayfası için eklenen yeni mobil ayarlar */
+    .contact-buttons {
+        flex-direction: column; /* Butonları mobilde alt alta dizer */
+        gap: 15px;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    .contact-email {
+        font-size: 20px; /* Mail adresi ekrandan taşmasın diye küçülttük */
+    }
+}
+
+/* --- PROJELER SAYFASI KART ANİMASYONLARI --- */
+.reveal-card {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: revealUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* --- YENİ İLETİŞİM SAYFASI TASARIMI --- */
+.contact-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 45px; /* Elemanlar arası boşluk */
+    padding-top: 15vh;
+}
+
+/* Mail Üstü Ufak Yazı */
+.contact-subtext {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: #999999;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+/* Havalı Mail Efekti */
+.contact-email {
+    font-family: 'Cinzel', serif; /* Maile de sinematik fontu verdik */
+    font-size: 32px;
+    letter-spacing: 3px;
+    color: #ffffff;
+    position: relative;
+    display: inline-block;
+    transition: all 0.4s ease;
+}
+.contact-email::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -8px;
+    left: 50%;
+    background-color: #ffffff;
+    transition: all 0.4s ease;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    transform: translateX(-50%);
+}
+.contact-email:hover {
+    color: #cccccc;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+    transform: scale(1.02);
+}
+.contact-email:hover::after {
+    width: 100%;
+}
+
+/* Yönlendirme Butonları */
+.contact-buttons {
+    display: flex;
+    gap: 25px;
+}
+
+.action-btn {
+    display: inline-block;
+    padding: 15px 35px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: #ffffff;
+    text-decoration: none;
+    border: 1px solid #555;
+    background-color: rgba(255, 255, 255, 0.03);
+    transition: all 0.4s ease;
+    border-radius: 2px;
+    text-align: center;
+}
+
+/* İkinci Butonun Rengi Biraz Daha Farklı Olsun Diye */
+.outline-btn {
+    background-color: transparent;
+    border-color: #444;
+}
+
+.action-btn:hover {
+    border-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+    transform: translateY(-3px);
+    color: #ffffff;
+}
+
+/* Sosyal Medya İkonları Hover Efekti */
+.social-links {
+    display: flex;
+    gap: 30px;
+    margin-top: 10px;
+}
+.social-icon {
+    width: 35px;
+    height: 35px;
+    color: #666666;
+    transition: all 0.3s ease;
+}
+.social-icon:hover {
+    color: #ffffff;
+    transform: translateY(-5px);
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.8));
+}
+
+/* --- RECRUIT SAYFASI TASARIMI --- */
+.recruit-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 18vh; /* Ekranın tam ortasına hizalamak için */
+}
+
+.recruit-message {
+    margin: 40px 0;
+    max-width: 650px;
+}
+
+.closed-msg {
+    font-size: 22px;
+    color: #ffffff;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.sub-msg {
+    font-size: 16px;
+    color: #aaaaaa;
+    line-height: 1.8;
+    letter-spacing: 1px;
+}
+
+/* Sinematik Buton Tasarımı */
+.recruit-btn {
+    display: inline-block;
+    padding: 16px 45px;
+    font-size: 15px;
+    letter-spacing: 4px;
+    color: #ffffff;
+    text-decoration: none;
+    border: 1px solid #444;
+    background-color: transparent;
+    transition: all 0.4s ease;
+    border-radius: 2px;
+}
+
+.recruit-btn:hover {
+    border-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.15); /* Üstüne gelince hafifçe parlar */
+    transform: translateY(-3px); /* Üstüne gelince hafifçe yukarı kalkar */
+    color: #ffffff;
+}
+
+/* --- DİL SEÇİCİ (LANGUAGE SWITCHER) --- */
+.lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 30px; /* Diğer menü elemanlarıyla arasına biraz mesafe koyalım */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+.lang-switcher a {
+    color: #777777; /* Pasif diller koyu gri */
+    transition: all 0.3s ease;
+}
+.lang-switcher a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(255,255,255,0.5);
+}
+.active-lang {
+    color: #ffffff !important; /* Seçili olan dil bembeyaz parlar */
+    font-weight: bold;
+}
+.lang-separator {
+    color: #333333; /* Araya koyduğumuz ince çizginin rengi */
+}
+
+/* Mobilde dil seçiciyi ortaya alalım */
+@media (max-width: 768px) {
+    .lang-switcher {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}
+
+/* --- SPECIAL & SHOP SAYFALARI IŞIK SÜZÜLMESİ EFEKTİ --- */
+.shine-effect {
+    font-family: 'Cinzel', serif;
+    font-size: 50px;
+    letter-spacing: 15px;
+    margin: 0;
+    
+    /* Yazının zeminini koyu gri yapıyoruz */
+    color: rgba(255, 255, 255, 0.1); 
+    
+    /* Üstünden geçecek ışık huzmesini (Gradient) oluşturuyoruz */
+    background: linear-gradient(
+        90deg, 
+        rgba(255,255,255,0.1) 0%, 
+        rgba(255,255,255,1) 50%, /* Tam ortası bembeyaz parlar */
+        rgba(255,255,255,0.1) 100%
+    );
+    background-size: 200% auto;
+    
+    /* Bu iki satır, arka plan ışığının sadece yazının içinde görünmesini sağlar */
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    /* Işığı soldan sağa kaydıran animasyon */
+    animation: revealUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards, 
+               shineSweep 3s linear infinite 1s; /* 1 saniye bekler, sonra kaymaya başlar */
+}
+
+@keyframes shineSweep {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+}
+
+/* Mobilde yazı biraz küçülsün ki sığsın */
+@media (max-width: 768px) {
+    .shine-effect {
+        font-size: 28px;
+        letter-spacing: 8px;
+    }
+}
+
+/* --- ALT SAYFALARDAKİ ANA MENÜ YAZISI (ZARİF TASARIM) --- */
+.back-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px; /* Devasa boyuttan çok daha kibar bir boyuta çektik */
+    font-weight: 300; /* Kaba durmaması için incelttik */
+    letter-spacing: 3px; /* Harflerin arasını hafifçe açtık */
+    color: #999999; /* Göz yormayan, arkada kalan bir gümüş rengi */
+    text-transform: uppercase;
+    margin-left: 5px; /* Logoyla arasına ufak bir nefes boşluğu */
+    transition: color 0.3s ease;
+}
+
+/* Fareyle logonun üzerine gelince Ana Menü yazısı bembeyaz parlasın */
+.logo:hover .back-text {
+    color: #ffffff;
+}
+
+/* --- LOGO YANINDAKİ 'ANIMATION' YAZISI --- */
+.logo-suffix {
+    font-family: 'Montserrat', sans-serif; /* Daha zarif olan fonta geçirdik */
+    font-size: 14px; /* Boyutunu küçülttük */
+    font-weight: 300; /* Kaba durmasın diye olabildiğince incelttik */
+    letter-spacing: 4px; /* Harflerin arasını havalı bir şekilde açtık */
+    color: #999999; /* Beyaz değil, hafif metalik gri */
+    margin-left: 3px; /* Chiseteiru kelimesiyle arasına milimetrik bir boşluk */
+}
+
+
+/* --- ÜST MENÜ (HEADER) KUSURSUZ HİZALAMA --- */
+header {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr; /* Ekranı 3'e böler: Sol (esnek), Orta (içeriğe göre), Sağ (esnek) */
+    align-items: center;
+    padding: 20px 50px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
+    box-sizing: border-box;
+}
+
+/* Sol tarafı tam sola yasla */
+header .logo {
+    justify-self: start;
+}
+
+/* Ana menüyü tam ortaya çivile */
+header nav {
+    justify-self: center;
+}
+
+/* Dil seçiciyi tam sağa yasla */
+header .lang-switcher {
+    justify-self: end;
+    margin-left: 0; /* Eski margin ayarını sıfırladık ki fazladan kayma yapmasın */
+}
