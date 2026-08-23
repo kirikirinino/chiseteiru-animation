@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Haber Detayı - Chiseteiru</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    
+    <header>
+        <a href="../index.html" class="logo">
+            <img src="../logo.png" alt="Chiseteiru Logo" class="logo-img">
+            <span class="back-text">Ana Menü</span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="../projeler.html">Projelerimiz</a></li>
+                <li><a href="../isealim.html">Kariyer</a></li>
+                <li><a href="../special.html">Özel</a></li>
+                <li><a href="../news.html">Haberler</a></li>
+                <li><a href="../hakkimizda.html">Hakkımızda</a></li>
+                <li><a href="../iletisim.html">İletişim</a></li>
+            </ul>
+        </nav>
+        <div class="lang-switcher">
+            <a href="#" class="active-lang">TR</a>
+            <span class="lang-separator">|</span>
+            <a href="../en/news.html">EN</a>
+            <span class="lang-separator">|</span>
+            <a href="../jp/news.html">JP</a>
+        </div>
+    </header>
+
+<style>
+  
+  body {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* kapak */
+  .article-hero {
+    position: relative;
+    width: 100%;
+    height: 60vh; 
+    min-height: 400px;
+    margin-top: 5px; 
+    background: url('kapak-fotosu.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  /* blur */
+  .article-hero-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70%;
+    background: linear-gradient(to top, #121212 5%, transparent 100%);
+    z-index: 1;
+  }
+
+  .article-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 900px;
+    padding: 0 20px 40px 20px;
+  }
+
+  .article-category {
+    color: #00e5ffb6;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    display: inline-block;
+  }
+
+  .article-hero-title {
+    font-size: 42px;
+    color: #ffffffc4;
+    margin: 0 0 20px 0;
+    line-height: 1.2;
+  }
+
+  .article-meta {
+    font-size: 13px;
+    color: #888;
+    letter-spacing: 1px;
+  }
+
+  /* metin */
+  .article-body {
+    max-width: 760px; /* Gözü yormamak için ideal okuma genişliği */
+    margin: 40px auto 100px auto;
+    padding: 0 20px;
+  }
+
+  .article-body p {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #cccccc;
+    margin-bottom: 25px;
+  }
+
+  /* ilk harf*/
+  .article-body p:first-of-type::first-letter {
+    font-size: 50px;
+    color: #00e5ff9e;
+    float: left;
+    margin: 10px 10px 0 0;
+    line-height: 0.8;
+    font-weight: bold;
+  }
+
+  /* ara başlıklar */
+  .article-body h2 {
+    color: #ffffff;
+    font-size: 26px;
+    margin: 50px 0 20px 0;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+  }
+
+  /* görsel ek */
+  .inline-image-box {
+    margin: 40px 0;
+    text-align: center;
+  }
+
+  .inline-image-box img {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #333;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  }
+
+  .inline-caption {
+    font-size: 13px;
+    color: #777;
+    margin-top: 10px;
+    font-style: italic;
+  }
+</style>
+
+    <!-- kapak -->
+    <div class="article-hero">
+        <div class="article-hero-overlay"></div>
+        <div class="article-hero-content">
+            <span class="article-category">Haberler</span>
+            <!-- baslik -->
+            <h1 class="article-hero-title">Kyoto Uluslararası Manga Anime Fuarı Hazırlıklarımız Devam Ediyor</h1>
+            <!-- yazar tarih -->
+            <div class="article-meta">23 AĞUSTOS 2026 • YAZAN: Arif Emre BALCI</div>
+        </div>
+    </div>
+
+    <!-- metin baslangic -->
+    <div class="article-body">
+        
+        <p>Uzun süredir üzerinde çalıştığımız animasyon projelerimiz için önemli bir adım atıyoruz. Ekip olarak en büyük hedefimiz, üretim vizyonumuzu ve teknik altyapımızı uluslararası standartlara taşımak. Bu doğrultuda Japonya seyahatimiz ve sektörel temaslarımız için hazırlıklarımız sürüyor.</p>
+
+        <p>Eylül ayında, Batı Japonya'nın en önemli anime etkinliklerinden biri kabul edilen Kyoto Uluslararası Manga Anime Fuarı'na (KYOMAF) katılım sağlayacağız. Fuarda vizyonumuzu sektör temsilcileriyle paylaşacak, karşılıklı bilgi alışverişinde bulunacağız.</p>
+<!-- ========================================== -->
+        <!-- ara gorsel -->
+        <div class="inline-image-box">
+            <img src="kyomaf.jpg" alt="kyomaf">
+            <div class="inline-caption">KYOMAF Animasyon Fuarı Broşürü, KYOMAF Resmi Sitesi</div>
+        </div>
+        <!-- ========================================== -->
+        <h2>Sektörle Buluşma Heyecanı</h2>
+        <p>Fuar süresince stüdyoların ve yapımcıların üretim süreçlerini yerinde gözlemleyecek, animasyon endüstrisinin farklı kademelerinden insanlar ile görüşmeler yapacağız. Amacımız yalnızca gözlemlemek değil, ekibimizin Türkiye kökenli üretim vizyonunu tanıtmak ve olası işbirliği zeminleri oluşturmak.</p>
+        <p>Temaslarımızın sadece kendi projelerimiz açısından değil, Türkiye'de anime ve animasyon alanında filizlenecek gelecekteki inisiyatifler için de bir köprü olarak görüyoruz.</p>
+
+
+        
+
+
+      
+
+    </div>
+
+</body>
+</html>
